@@ -25,7 +25,7 @@ vendorId(001){
  vendorId(002){
     menuItems:[{itemId:1,itemImgUrl:"http://easyFood.com/static/itemImages/chai.jpg",itemName"Chai",itemUnitPrice:20,itemAvailability:true},
                {itemId:2,itemImgUrl:"http://easyFood.com/static/itemImages/coffee.jpg",itemName"Coffee",itemUnitPrice:30,itemAvailability:true},
-               {itemId:2,itemImgUrl:"http://easyFood.com/static/itemImages/samosa.jpg",itemName"Samosa",itemUnitPrice:60,itemAvailability:true}]
+               {itemId:2,itemImgUrl:"http://easyFood.com/static/itemImages/samosa.jpg",itemName"Samosa",itemUnitPrice:20,itemAvailability:true}]
  }
 ```
 
@@ -33,11 +33,32 @@ vendorId(001){
 
 ```
 userId(001){
-    cartItems: []
+    cartItems: [{vendorId:001,
+                vendorName:AbcVend,
+                Items:[{itemId:1,itemName"Poha",itemUnitPrice:20,itemQty:2},
+                        {itemId:2,itemName"Idli",itemUnitPrice:30,itemQty:1}]
+                },
+                {vendorId:002,
+                vendorName:BcdVend,
+                Items:[{itemId:1,itemName"Chai",itemUnitPrice:20,itemQty:2},
+                        {itemId:3,itemName"Samosa",itemUnitPrice:20,itemQty:3}]
+                }]
+ }
+ userId(002){
+    cartItems: [{vendorId:001,
+                vendorName:AbcVend,
+                Items:[{itemId:1,itemName"Poha",itemUnitPrice:20,itemQty:2},
+                        {itemId:2,itemName"Idli",itemUnitPrice:30,itemQty:1}]
+                },
+                {vendorId:002,
+                vendorName:BcdVend,
+                Items:[{itemId:1,itemName"Chai",itemUnitPrice:20,itemQty:2},
+                        {itemId:3,itemName"Samosa",itemUnitPrice:20,itemQty:3}]
+                }]
  }
 ```
 
-- orders `To Store Order History of Each Users`
+- orders `To Store Order History of Each Users based on userID`
 
 ```
 
