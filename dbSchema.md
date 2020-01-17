@@ -61,5 +61,38 @@ userId(001){
 - orders `To Store Order History of Each Users based on userID`
 
 ```
-
+userId(001){
+    orderId:001,
+    orderItems: [{vendorId:001,
+                vendorName:AbcVend,
+                Items:[{itemId:1,itemName"Poha",itemUnitPrice:20,itemQty:2},
+                        {itemId:2,itemName"Idli",itemUnitPrice:30,itemQty:1}]
+                },
+                {vendorId:002,
+                vendorName:BcdVend,
+                Items:[{itemId:1,itemName"Chai",itemUnitPrice:20,itemQty:2},
+                        {itemId:3,itemName"Samosa",itemUnitPrice:20,itemQty:3}]
+                }],
+    orderTotal:170,
+    orderReady:false,
+    orderDelivered:false
+    orderRating:0
+ },
+ userId(002){
+    orderId:001,
+    orderItems: [{vendorId:001,
+                vendorName:AbcVend,
+                Items:[{itemId:1,itemName"Poha",itemUnitPrice:20,itemQty:2},
+                        {itemId:2,itemName"Idli",itemUnitPrice:30,itemQty:1}]
+                },
+                {vendorId:002,
+                vendorName:BcdVend,
+                Items:[{itemId:1,itemName"Chai",itemUnitPrice:20,itemQty:2},
+                        {itemId:3,itemName"Samosa",itemUnitPrice:20,itemQty:3}]
+                }],
+    orderTotal:170,
+    orderReady:true,
+    orderDelivered:true
+    orderRating:4
+ }
 ```
