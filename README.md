@@ -1,6 +1,8 @@
 # easyFood
 An Inteligent Cafeteria Solution POC
 
+> Demo: https://easyfoodhome.firebaseapp.com/
+
 ## The Problems!
 
 * Long Queues - Consumes lots of Time
