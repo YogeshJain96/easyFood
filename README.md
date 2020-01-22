@@ -35,7 +35,7 @@ An Inteligent Cafeteria Solution POC
 * Easy Access To Reports & Data
 * Paperless Solution
 
-## The easy process!
+## The easyProcess!
 
 1. The Recharge :
 User goes to the admin,
@@ -62,7 +62,7 @@ plans inventory
 accordingly
 
 
-The TechStack!
+## The TechStack!
 
 * FRONTEND
   * WebApp: Angular8, MaterialUI
