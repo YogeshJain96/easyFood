@@ -1,5 +1,7 @@
 # easyFood
-An Inteligent Cafeteria Solution POC
+Digital Cafeteria Solution POC
+
+easyFood is a digital cafeteria solution, which helps the users/employees to view food available and place order via web app portal, which notifies the vendor about the orders, user then get notified when the order is ready. User can give feedback as well. Admin can monitor the generated revenue and view order details for trend analysis and inventory management. This solves the problem of long queues and saves user's time.
 
 > Demo: https://easyfoodhome.firebaseapp.com/
 
