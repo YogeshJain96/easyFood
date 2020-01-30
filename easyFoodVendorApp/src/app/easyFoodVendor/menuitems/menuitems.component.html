@@ -1,0 +1,155 @@
+<div class="wrapper ">
+  <!-- sidebar -->
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-dashboard-navbar></app-dashboard-navbar>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-10 col-md-10">
+            <div class="card">
+              <div class="card-header card-header-tabs card-header-primary">
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <span class="nav-tabs-title"><b>Menu Items</b></span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div>
+                  <table class="table">
+                    <tbody>
+                      <ng-container *ngFor="let item of menuitems">
+                        <tr>
+                          <td>
+                            <i class="material-icons veg"
+                              >center_focus_strong</i
+                            >
+                          </td>
+                          <td>{{ item.itemName }}</td>
+                          <td>{{ item.itemUnitPrice }}</td>
+
+                          <td class="td-actions text-right">
+                            <ng-container *ngIf="item.itemAvailability">
+                              <p class="text-success">
+                                Available
+                                <button
+                                  type="button"
+                                  class="btn btn-success btn-sm"
+                                  (click)="updateItem(item, false)"
+                                >
+                                  <i class="material-icons"> check_circle </i>
+                                </button>
+                              </p>
+                            </ng-container>
+                            <ng-container *ngIf="!item.itemAvailability">
+                              <p class="text-danger">
+                                UnAvailable
+                                <button
+                                  type="button"
+                                  class="btn btn-danger btn-sm"
+                                  (click)="updateItem(item, true)"
+                                >
+                                  <i class="material-icons">cancel</i>
+                                </button>
+                              </p>
+                            </ng-container>
+                          </td>
+                        </tr>
+                      </ng-container>
+                      <tr>
+                        <td colspan="4">
+                          <button
+                            class="btn btn-info btn-sm"
+                            data-toggle="modal"
+                            data-target="#addMenu"
+                          >
+                            Add New Item
+                          </button>
+
+                          <h4 class="text-info">{{ msg }}</h4>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button
+                    (click)="saveMenu()"
+                    class="btn btn-success btn-round btn-md"
+                  >
+                    Save Menu
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="addMenu"
+  tabindex="-1"
+  role="dialog"
+  style="display: none;"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <b class="text-danger">Add New Menu Item</b>
+        </h4>
+
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <i class="material-icons">clear</i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="material-icons">local_dining</i>
+            </span>
+          </div>
+          <input
+            [(ngModel)]="newItem.itemName"
+            name="itemName"
+            type="text"
+            class="form-control"
+            placeholder="Menu Item Name..."
+          />
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="material-icons">account_balance_wallet</i>
+            </span>
+          </div>
+          <input
+            [(ngModel)]="newItem.itemUnitPrice"
+            name="itemUnitPrice"
+            type="number"
+            class="form-control"
+            placeholder="Unit Price..."
+          />
+        </div>
+        <p class="text-danger">{{ errAddMsg }}</p>
+        <button class="btn btn-success btn-sm" (click)="addNewItem()">
+          Add New Item
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

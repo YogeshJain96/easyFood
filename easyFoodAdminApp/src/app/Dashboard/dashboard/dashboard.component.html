@@ -1,0 +1,84 @@
+<div class="wrapper ">
+  <!-- sidebar -->
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-dashboard-navbar></app-dashboard-navbar>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6" routerLink="/recharge">
+            <div class="card card-stats">
+              <div class="card-header card-header-success">
+                <p class="card-title">Recharge</p>
+                <h3 class="card-title">Now</h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons">account_balance_wallet</i>
+                  easyRecharge
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6" routerLink="/orderhistory">
+            <div class="card card-stats">
+              <div class="card-header card-header-danger">
+                <p class="card-title">Total Orders</p>
+                <h3 class="card-title">
+                  {{ totalOrdersToday }}
+                </h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons">date_range</i> Generated Today
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-6" routerLink="/orderhistory">
+            <div class="card card-stats">
+              <div class="card-header card-header-info">
+                <p class="card-title">Revenue</p>
+                <h3 class="card-title">{{ revenueToday | currency: "INR" }}</h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons">date_range</i> Generated Today
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-6" routerLink="/generatereport">
+            <div class="card card-stats">
+              <div class="card-header card-header-warning">
+                <p class="card-title">Generate</p>
+                <h3 class="card-title">Report</h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons">picture_as_pdf</i> Generate PDFs
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <h3>
+                  <i>"{{ fact }}"</i>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+  </div>
+</div>

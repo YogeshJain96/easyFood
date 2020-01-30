@@ -1,0 +1,186 @@
+<div class="wrapper ">
+  <!-- sidebar -->
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-dashboard-navbar></app-dashboard-navbar>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Live Orders</h4>
+              </div>
+              <div class="card-body  text-center">
+                <button
+                  routerLink="/orderstatus"
+                  class="btn btn-warning "
+                  *ngIf="liveOrder"
+                >
+                  View Order Status
+                </button>
+                <ng-container *ngIf="!liveOrder">
+                  <h4 class="text-danger">No Live Orders!</h4>
+                  <button
+                    routerLink="/findyourfood"
+                    class="btn btn-warning btn-sm"
+                  >
+                    Place New Order
+                  </button>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Order History</h4>
+                <p class="card-category">Latest Orders</p>
+              </div>
+              <div class="card-body table-responsive">
+                <h3 class="text-danger" *ngIf="!orderHisory">{{ msg }}</h3>
+                <table class="table table-hover" *ngIf="orderHisory">
+                  <thead class="text-danger">
+                    <th>OrderId</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>OrderedOn</th>
+                    <th>Ratings</th>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let order of orderHisory">
+                      <tr>
+                        <td
+                          class="text-danger"
+                          (click)="viewOrderDetails(order)"
+                          data-toggle="modal"
+                          data-target="#orderDetails"
+                        >
+                          <b> {{ order.orderId }}</b>
+                        </td>
+                        <td>{{ order.orderTotal | currency: "INR" }}</td>
+                        <td>
+                          {{
+                            order.orderDelivered ? "Delivered" : "Processing"
+                          }}
+                        </td>
+
+                        <td>{{ order.orderedOn | date }}</td>
+                        <td>
+                          <i
+                            class="material-icons"
+                            style="color:#ffd700"
+                            *ngFor="
+                              let rating of [].constructor(order.orderRating)
+                            "
+                          >
+                            stars
+                          </i>
+                          <ng-container *ngIf="order.orderRating == 0">
+                            <ng-container
+                              *ngFor="let rating of [1, 2, 3, 4, 5]"
+                            >
+                              <i
+                                class="material-icons"
+                                style="color:rgb(214, 201, 140);"
+                                (click)="saveRating(order, rating)"
+                              >
+                                stars
+                              </i>
+                            </ng-container>
+                          </ng-container>
+                        </td>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="orderDetails"
+  tabindex="-1"
+  role="dialog"
+  style="display: none;"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document" *ngIf="orderDetails">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          Order Details : <b class="text-danger">{{ orderDetails.orderId }}</b>
+        </h4>
+
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <i class="material-icons">clear</i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover">
+          <tbody>
+            <ng-container *ngFor="let item of orderDetails.orderItems[0].items">
+              <tr>
+                <td class="text-danger">
+                  <b> {{ item.itemName }}</b>
+                </td>
+                <td>{{ item.itemQty }} x</td>
+                <td>
+                  {{ item.itemUnitPrice | currency: "INR" }}
+                </td>
+                <td class="pull-right text-danger">
+                  {{ item.itemQty * item.itemUnitPrice | currency: "INR" }}
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+        <h4 class="pull-right">
+          Order Total:
+          <span class="text-danger">{{
+            orderDetails.orderTotal | currency: "INR"
+          }}</span>
+        </h4>
+        <p class="text-danger">
+          {{ orderDetails.orderDelivered ? "Delivered" : "Processing" }}
+        </p>
+        <p>
+          Ratings:<i
+            class="material-icons"
+            style="color:#ffd700"
+            *ngFor="let rating of [].constructor(orderDetails.orderRating)"
+          >
+            stars
+          </i>
+        </p>
+        <p class=" pull-right">
+          Ordered On : {{ orderDetails.orderedOn | date: "medium" }}
+        </p>
+      </div>
+      <!-- <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger btn-link"
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+      </div> -->
+    </div>
+  </div>
+</div>

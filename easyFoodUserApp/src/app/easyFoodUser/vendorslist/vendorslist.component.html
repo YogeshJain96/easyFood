@@ -1,0 +1,56 @@
+<div class="wrapper ">
+  <!-- sidebar -->
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-dashboard-navbar></app-dashboard-navbar>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Find Your Food!</h4>
+              </div>
+              <div class="card-body">
+               
+              </div>
+            </div>
+          </div> -->
+          <div class="col-lg-10 col-md-10">
+            <div class="card">
+              <div class="card-header card-header-tabs card-header-primary">
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <span class="nav-tabs-title"><b>Find Your Food:</b></span>
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                      <li *ngFor="let vendor of vendorList" class="nav-item">
+                        <a
+                          class="nav-link"
+                          (click)="loadMenu(vendor.id)"
+                          data-toggle="tab"
+                        >
+                          <!-- <i class="material-icons">local_drink</i>
+                          <i class="material-icons">local_dining</i> -->
+                          <i class="material-icons">fastfood</i>
+                          {{ vendor.name }}
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <app-menuitems [vendorId]="vendorId"></app-menuitems>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+  </div>
+</div>

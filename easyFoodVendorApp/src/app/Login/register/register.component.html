@@ -1,0 +1,118 @@
+<body class="login-page sidebar-collapse">
+  <app-login-navbar></app-login-navbar>
+
+  <div
+    class="page-header header-filter"
+    style="background-image: url('./assets/img/loginBG.jpg'); background-size: cover; background-position: top center;"
+  >
+    <div class="container">
+      <div class="row" style="padding-top: 2rem">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+          <div class="card card-login">
+            <form class="form" method="" action="">
+              <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">Register</h4>
+              </div>
+              <div class="card-body">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">face</i>
+                    </span>
+                  </div>
+                  <input
+                    [(ngModel)]="registerUserData.userName"
+                    name="userName"
+                    type="text"
+                    class="form-control"
+                    placeholder="Full Name..."
+                  />
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">mail</i>
+                    </span>
+                  </div>
+                  <input
+                    [(ngModel)]="registerUserData.userEmail"
+                    name="userEmail"
+                    type="email"
+                    class="form-control"
+                    placeholder="Email..."
+                  />
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                  <input
+                    [(ngModel)]="registerUserData.userPassword"
+                    name="userPassword"
+                    type="password"
+                    class="form-control"
+                    placeholder="Password..."
+                  />
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">phone</i>
+                    </span>
+                  </div>
+                  <input
+                    [(ngModel)]="registerUserData.userPhone"
+                    name="userPhone"
+                    type="number"
+                    class="form-control"
+                    placeholder="Phone..."
+                  />
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">business</i>
+                    </span>
+                  </div>
+                  <input
+                    [(ngModel)]="registerUserData.userOrg"
+                    name="userOrg"
+                    type="text"
+                    class="form-control"
+                    placeholder="Organization Name..."
+                  />
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">business_center</i>
+                    </span>
+                  </div>
+                  <input
+                    [(ngModel)]="registerUserData.userOrgId"
+                    name="userOrgId"
+                    type="number"
+                    class="form-control"
+                    placeholder="Organization Id..."
+                  />
+                </div>
+              </div>
+
+              <div class="footer text-center" id="footerbtns">
+                <a routerLink="/login" class="btn btn-outline-danger btn-sm"
+                  >login</a
+                >
+                <button (click)="registerUser()" class="btn btn-danger btn-sm">
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-login-footer></app-login-footer>
+</body>

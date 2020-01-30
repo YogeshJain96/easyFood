@@ -1,0 +1,56 @@
+<div class="sidebar" data-color="danger" data-background-color="white">
+  <div class="logo">
+    <a routerLink="/userprofile" class="logo-normal simple-text">
+      <img src="../../assets/img/favicon.png" /> {{ userName }}
+    </a>
+  </div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
+          <i class="material-icons">dashboard</i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/userprofile" routerLinkActive="active">
+          <i class="material-icons">person</i>
+          <p>Admin Profile</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/recharge" routerLinkActive="active">
+          <i class="material-icons">account_balance_wallet</i>
+          <p>Recharge</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a
+          class="nav-link"
+          routerLink="/orderhistory"
+          routerLinkActive="active"
+        >
+          <i class="material-icons">local_dining</i>
+          <p>View Orders</p>
+        </a>
+      </li>
+
+      <li class="nav-item ">
+        <a
+          class="nav-link"
+          routerLink="/generatereport"
+          routerLinkActive="active"
+        >
+          <i class="material-icons">library_books</i>
+          <p>Generate Report</p>
+        </a>
+      </li>
+      <li class="nav-item active-pro ">
+        <a class="nav-link" (click)="logoutuser()">
+          <i class="material-icons" style="color: #F00">power_settings_new</i>
+          <p>Logout</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

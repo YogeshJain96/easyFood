@@ -1,0 +1,89 @@
+<div class="wrapper ">
+  <!-- sidebar -->
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-dashboard-navbar></app-dashboard-navbar>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card card-profile">
+              <div class="card-avatar">
+                <a>
+                  <img class="img" src="../assets/img/ontrooo.jpg" />
+                </a>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">{{ userDetails.name }}</h4>
+                <h6 class="card-category text-gray">easyFood Admin</h6>
+                <p class="card-description">
+                  Fail Fast, Learn Faster!!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Profile Details</h4>
+              </div>
+              <div class="card-body">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <h5 class="card-title text-gray">
+                          AdminId : {{ userDetails.id }}
+                        </h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5 class="card-title text-gray">
+                          Email : {{ userDetails.email }}
+                        </h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5 class="card-title text-gray">
+                          Admin Name : {{ userDetails.name }}
+                        </h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5 class="card-title text-gray">
+                          Phone Number : {{ userDetails.phone }}
+                        </h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5 class="card-title text-gray">
+                          Organization : {{ userDetails.organisationName }}
+                        </h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5 class="card-title text-gray">
+                          OrganizationID : {{ userDetails.organisationId }}
+                        </h5>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+  </div>
+</div>

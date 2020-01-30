@@ -1,0 +1,45 @@
+<div class="wrapper ">
+  <!-- sidebar -->
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-dashboard-navbar></app-dashboard-navbar>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let vendor of vendorList">
+            <div class="card card-chart" (click)="findYourFood()">
+              <div class="card-header card-header-primary">
+                <h4>{{ vendor.name }}</h4>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">{{ vendor.name }}</h4>
+                <p class="card-category">
+                  easyFood
+                </p>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons">access_time</i> 8 am - 10 pm
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <h3>
+                  <i>"{{ fact }}"</i>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+  </div>
+</div>

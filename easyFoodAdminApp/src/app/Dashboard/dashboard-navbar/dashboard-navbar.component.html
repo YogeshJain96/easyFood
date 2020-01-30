@@ -1,0 +1,72 @@
+<nav
+  class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top "
+>
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <a
+        class="navbar-brand"
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        style="font-size: xx-large;font-weight: 500;font-family: 'Kaushan Script', cursive; color:#F00"
+        >easyFood</a
+      >
+      >
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      aria-controls="navigation-index"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard">
+            <i class="material-icons text-danger">dashboard</i>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link"
+            href=""
+            id="navbarDropdownProfile"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="material-icons text-primary">person</i>
+            <p class="d-lg-none d-md-block">
+              Account
+            </p>
+          </a>
+          <div
+            class="dropdown-menu dropdown-menu-right"
+            aria-labelledby="navbarDropdownProfile"
+          >
+            <a
+              class="dropdown-item"
+              routerLink="/userprofile"
+              routerLinkActive="active"
+              >Profile</a
+            >
+            <a
+              class="dropdown-item"
+              routerLink="/recharge"
+              routerLinkActive="active"
+              >Recharge</a
+            >
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logoutuser()">Log out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

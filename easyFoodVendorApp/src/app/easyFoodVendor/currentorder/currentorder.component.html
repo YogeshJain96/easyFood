@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-lg-3 col-md-3" *ngIf="!newOrder">
+    <div class="card">
+      <h4 class="card-title">No New Orders</h4>
+    </div>
+  </div>
+
+  <ng-container *ngFor="let order of currentOrders">
+    <div class="col-lg-4 col-md-4" *ngIf="!order.orderDelivered">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">OrderId: {{ order.orderId }}</h4>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <tbody>
+              <tr *ngFor="let item of order.orderItems[0].items">
+                <td>
+                  <h5 class="card-title text-gray">
+                    {{ item.itemName }} x {{ item.itemQty }}
+                  </h5>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    class="btn btn-warning btn-round"
+                    *ngIf="!order.orderReady"
+                    (click)="orderReady(order)"
+                  >
+                    Ready
+                  </button>
+                  <button
+                    class="btn btn-success btn-round"
+                    *ngIf="!order.orderDelivered"
+                    (click)="orderDelivered(order)"
+                  >
+                    Delivered
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,74 @@
+<div class="wrapper ">
+  <!-- sidebar -->
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-dashboard-navbar></app-dashboard-navbar>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Cart Details</h4>
+              </div>
+              <div class="card-body table-responsive">
+                <table class="table table-hover">
+                  <thead class="text-danger">
+                    <th>ItemName</th>
+                    <th>UnitPrice</th>
+                    <th>Qunatity</th>
+                    <th>Amount</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of cartItems">
+                      <td>{{ item.itemName }}</td>
+                      <td>{{ item.itemUnitPrice | currency: "INR" }}</td>
+                      <td>{{ item.itemQty }}</td>
+                      <td class="text-danger">
+                        {{
+                          item.itemUnitPrice * item.itemQty | currency: "INR"
+                        }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Total</td>
+                      <td></td>
+                      <td></td>
+                      <td class="text-danger">
+                        <h4>{{ cartTotal | currency: "INR" }}</h4>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <button
+                  (click)="proceedToPay()"
+                  class="btn btn-success btn-round"
+                  *ngIf="!emptyCart"
+                >
+                  Proceed to Pay
+                </button>
+                <h3 class="text-danger">{{ msg }}</h3>
+                <ng-container *ngIf="emptyCart">
+                  <h5 class="text-danger text-center pull-left">
+                    <button
+                      [routerLink]="['/findyourfood']"
+                      class="btn btn-warning"
+                    >
+                      Add Food
+                    </button>
+                    &nbsp;&nbsp;Cart Empty !
+                  </h5>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+  </div>
+</div>

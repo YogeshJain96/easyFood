@@ -1,0 +1,42 @@
+<div class="tab-content">
+  <div class="tab-pane active" id="vendor1">
+    <table class="table">
+      <tbody>
+        <ng-container *ngFor="let item of menuitems">
+          <tr *ngIf="item.itemAvailability">
+            <td>
+              <i class="material-icons veg">center_focus_strong</i>
+            </td>
+            <td>{{ item.itemName }}</td>
+            <td>{{ item.itemUnitPrice }}</td>
+            <td class="td-actions text-right">
+              <button
+                type="button"
+                class="btn btn-danger btn-sm"
+                (click)="removeItmQty(item)"
+                [disabled]="item.itemQty == 0"
+              >
+                <i class="material-icons">remove</i>
+              </button>
+              <h5 style="padding: 0 1rem 0 1rem; text-align: center;">
+                {{ item.itemQty }}
+              </h5>
+              <button
+                type="button"
+                class="btn btn-danger btn-sm"
+                (click)="addItmQty(item)"
+              >
+                <i class="material-icons">add</i>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  <button class="btn btn-danger" (click)="AddToCart()" *ngIf="carttotal">
+    Add To Cart
+  </button>
+  <h2 class="pull-right">{{ carttotal | currency: "INR" }}</h2>
+</div>

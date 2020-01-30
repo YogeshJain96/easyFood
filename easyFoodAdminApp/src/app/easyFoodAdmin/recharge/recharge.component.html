@@ -1,0 +1,85 @@
+<div class="wrapper ">
+  <!-- sidebar -->
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-dashboard-navbar></app-dashboard-navbar>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Recharge</h4>
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Enter UserId</label>
+                        <input
+                          name="userId"
+                          type="number"
+                          class="form-control"
+                          [(ngModel)]="rechargeDetails.userId"
+                          required="required"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Enter Amount</label>
+                        <input
+                          name="amount"
+                          type="number"
+                          class="form-control"
+                          [(ngModel)]="rechargeDetails.amount"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <button
+                        type="submit"
+                        (click)="recharge()"
+                        class="btn btn-success pull-right"
+                      >
+                        Recharge
+                      </button>
+                    </div>
+                  </div>
+                  <h3 class="text-success" *ngIf="rechargeMsg">
+                    {{ rechargeMsg }}
+                  </h3>
+
+                  <div
+                    class="alert alert-info alert-with-icon"
+                    data-notify="container"
+                    *ngIf="msg"
+                  >
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="alert"
+                      aria-label="Close"
+                    >
+                      <i class="material-icons">close</i>
+                    </button>
+                    <i class="material-icons" data-notify="icon">add_alert</i>
+                    <span data-notify="message">{{ msg }}</span>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <app-rechargehistory></app-rechargehistory>
+      </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+  </div>
+</div>

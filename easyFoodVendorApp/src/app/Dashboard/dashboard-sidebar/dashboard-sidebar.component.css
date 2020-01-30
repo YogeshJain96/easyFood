@@ -1,0 +1,12 @@
+.nav-link.active {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #f00 !important;
+
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14),
+    0 7px 10px -5px rgba(176, 102, 39, 0.4) !important;
+}
+
+.nav-link.active > i {
+  color: #ffffff !important;
+}

@@ -1,0 +1,116 @@
+<div class="wrapper ">
+  <!-- sidebar -->
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-dashboard-navbar></app-dashboard-navbar>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Generate Report</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Select From Date</label>
+                      <input
+                        [(ngModel)]="fromDate"
+                        type="date"
+                        name="fromDate"
+                        class="form-control"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">To Date</label>
+                      <input
+                        [(ngModel)]="toDate"
+                        name="todate"
+                        type="date"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <p class=" text-center" *ngIf="msg">
+                  <i class="material-icons">error</i> {{ msg }}
+                </p>
+                <button
+                  (click)="generateReport()"
+                  class="btn btn-success pull-right"
+                >
+                  Generate Report
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="genReport">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Report</h4>
+                <p class="card-category">Orders</p>
+              </div>
+              <div class="card-body table-responsive">
+                <h3 class="text-danger" *ngIf="!report">{{ msg }}</h3>
+                <table class="table table-hover" *ngIf="report">
+                  <thead class="text-danger">
+                    <th>OrderId</th>
+                    <th>Amount</th>
+                    <th>OrderedOn</th>
+                    <th>User Id</th>
+                    <th>Ratings</th>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let order of report">
+                      <tr>
+                        <td class="text-danger">
+                          <b> {{ order.orderId }}</b>
+                        </td>
+                        <td>{{ order.orderTotal | currency: "INR" }}</td>
+                        <td>
+                          {{ order.orderedOn | date }}
+                        </td>
+
+                        <td>{{ order.userId }}</td>
+                        <td>
+                          <i
+                            class="material-icons"
+                            style="color:#ffd700"
+                            *ngFor="
+                              let rating of [].constructor(order.orderRating)
+                            "
+                          >
+                            stars
+                          </i>
+                        </td>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button class=" btn btn-success" (click)="print()">
+              Print PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+  </div>
+</div>

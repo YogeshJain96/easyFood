@@ -1,0 +1,110 @@
+<div class="wrapper ">
+  <!-- sidebar -->
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-dashboard-navbar></app-dashboard-navbar>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Order Status</h4>
+              </div>
+              <div class="card-body table-responsive">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <h4 class="card-title">
+                          Order ID: {{ orderStatus.orderId }}
+                        </h4>
+                      </td>
+
+                      <td></td>
+                    </tr>
+
+                    <tr>
+                      <td class="card-category">
+                        <h5>Order Details</h5>
+                      </td>
+                    </tr>
+                    <tr *ngFor="let item of items">
+                      <td>
+                        <h5>
+                          {{ item.itemName }}
+                          <i class="pull-right">
+                            {{ item.itemUnitPrice | currency: "INR" }} x
+                            {{ item.itemQty }} &nbsp;&nbsp;
+                            <span class="text-danger">
+                              {{
+                                item.itemUnitPrice * item.itemQty
+                                  | currency: "INR"
+                              }}
+                            </span>
+                          </i>
+                        </h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4 class="pull-right">
+                          Order Total :
+                          {{ orderStatus.orderTotal | currency: "INR" }}
+                        </h4>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <button
+                          class="btn btn-warning btn-sm"
+                          *ngIf="!orderStatus.orderReady"
+                        >
+                          <i class="material-icons">access_time</i> Preparing
+                        </button>
+
+                        <button
+                          class="btn btn-info  btn-sm"
+                          *ngIf="orderStatus.orderReady"
+                        >
+                          Order Prepared
+                        </button>
+
+                        <button
+                          class="btn btn-success btn-sm"
+                          *ngIf="orderStatus.orderDelivered"
+                        >
+                          Order Delivered
+                        </button>
+
+                        <button
+                          class="btn btn-success btn-round pull-right"
+                          (click)="refresh()"
+                        >
+                          <i class="material-icons">access_time</i> Refresh
+                        </button>
+                      </td>
+                    </tr>
+                    <tr *ngIf="!orderStatus.orderReady">
+                      <td>
+                        <p>
+                          <i class="material-icons">access_time</i>
+                          <b> 10 mins remaining</b>
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+  </div>
+</div>

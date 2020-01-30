@@ -1,0 +1,55 @@
+.veg {
+  color: green;
+}
+.nveg {
+  color: red;
+}
+.onoffswitch {
+  position: relative;
+  width: 56px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  height: 22px;
+  padding: 0;
+  line-height: 22px;
+  border: 0px solid #b8a5a5;
+  border-radius: 27px;
+  background-color: #ff0000;
+}
+.onoffswitch-label:before {
+  content: "";
+  display: block;
+  width: 27px;
+  margin: -2.5px;
+  background: #a1a1a1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 30px;
+  border-radius: 27px;
+  box-shadow: 0 6px 12px 0px #757575;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background-color: #4ac234;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label,
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  border-color: #4ac234;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  right: 0px;
+  background-color: #ebebeb;
+  box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
+}
