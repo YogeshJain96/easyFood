@@ -11,6 +11,7 @@
 - vendors `vendorId,vendorEmail,vendorPass,vendorFullName,vendorPhone,vendorOrg,vendorOrgId`
 - users_wallet `userId,userBalance`
 - vendors_ratings `vendorId,vendorFullName,vendorRating`
+- recharge_history `rechargeId,amount,date,adminId,userId`
 
 ## MongoDB Tables
 
